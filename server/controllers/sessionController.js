@@ -1,10 +1,10 @@
-import userInfo from "../models/userModel.js";
+import userInfo from "../models/session.js";
 
 
-class userController{
+class sessionController{
 //signup
 
-static signupUser = async(req,res)=>{
+static sessionRequest = async(req,res)=>{
     const user = await userInfo.create(req.body);
 
     if (!user) {
@@ -22,8 +22,8 @@ static signupUser = async(req,res)=>{
     })
 }
 
-static getAllUsers = async(req,res)=>{
-    const users = await userInfo.find();
+static getAllsessions = async(req,res)=>{
+    const session= await sessionInfo.find();
 
     if (!users) {
         return res.status(404).json({
@@ -37,13 +37,13 @@ static getAllUsers = async(req,res)=>{
     return res.status(200).json({
         status:200,
         message:"success!",
-        data:users
+        data:session
     })
 }
-static deleteUsers = async(req,res)=>{
-    const userx = await userInfo.findByIdAndDelete(req.params.id);
+static deletesession = async(req,res)=>{
+    const session = await sessionInfo.findByIdAndDelete(req.params.id);
 
-    if (!userx) {
+    if (!session) {
         return res.status(404).json({
             status:404,
             message:"failed!"
@@ -55,10 +55,10 @@ static deleteUsers = async(req,res)=>{
     return res.status(200).json({
         status:200,
         message:"deleted well!",
-        data:userx
+        data:session
     })
 }
 
 
 }
-export default userController;
+export default sessionController;
