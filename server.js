@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRouter from "./server/router/userRouter.js";
 import bodyParser from "body-parser";
-import sessionRouter from "./server/Router/sessionRouter.js";
+import sessionRouter from "./server/controllers/sessionController.js";
 
 
 dotenv.config({path:'./.env'});
