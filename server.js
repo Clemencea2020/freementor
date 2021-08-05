@@ -23,7 +23,7 @@ mongoose.connect(databaseUrl,{useNewUrlParser:true,useCreateIndex:true,useUnifie
 
 //port:4040
 const port= process.env.PORT;
-app.listen(4040, ()=>{
+app.listen(port, ()=>{
 
 console.log(`server is running on ${port}`);
 });
