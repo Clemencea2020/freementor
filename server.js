@@ -11,6 +11,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use("/freemrntor/v1/user",userRouter);
 app.use("/freemrntor/v1/session",sessionRouter);
+app.use('/',(req,res)=>{
+    res.status(404).send({
+    status:404,
+    message:"this routes doesn't exist"
+    })
+})
 
 const databaseUrl=process.env.DATABASE;
 mongoose.connect(databaseUrl,{useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true,useFindAndModify:false}).then(()=>console.log("Database Connected successfully"));
